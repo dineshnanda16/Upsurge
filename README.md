@@ -80,6 +80,10 @@ project-root/
 │   ├── doctor_review/   # Real-time doctor review of the project idea
 │   ├── keypad_model/    # Keypad hardware model images
 │   └── final_images/    # Final images of the completed model
+├── 0_hardare/             # Project media and documentation
+│   ├── a4d.ino/       # Main esp2 code
+│   ├── flask_server.py/   # local flask server
+│   ├── relay.ino/    # iot device code
 │
 ├── package.json
 ├── README.md
