@@ -29,17 +29,17 @@ export default function ReminderScreen() {
 
   useEffect(() => {
     Notifications.requestPermissionsAsync();
-    startPulseAnimation();
+    // startPulseAnimation();
   }, []);
 
-  const startPulseAnimation = () => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(pulseAnim, { toValue: 1.1, duration: 800, useNativeDriver: true }),
-        Animated.timing(pulseAnim, { toValue: 1, duration: 800, useNativeDriver: true }),
-      ])
-    ).start();
-  };
+  // const startPulseAnimation = () => {
+  //   Animated.loop(
+  //     Animated.sequence([
+  //       Animated.timing(pulseAnim, { toValue: 1.1, duration: 800, useNativeDriver: true }),
+  //       Animated.timing(pulseAnim, { toValue: 1, duration: 800, useNativeDriver: true }),
+  //     ])
+  //   ).start();
+  // };
 
   async function scheduleAlarm(date) {
     try {
@@ -91,7 +91,8 @@ export default function ReminderScreen() {
   };
 
   return (
-    <LinearGradient colors={['#a1c4fd', '#c2e9fb']} style={styles.gradient}>
+    <View style={styles.container}>
+
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         {/* Header */}
         <View style={styles.headerBox}>
@@ -100,7 +101,7 @@ export default function ReminderScreen() {
         </View>
 
         {/* Add Reminder Button with animation */}
-        <Animated.View style={{ transform: [{ scale: pulseAnim }] }}>
+        <View style={styles.container}>
           <TouchableOpacity
             style={styles.addButton}
             onPress={() => setShowPicker(true)}
@@ -109,7 +110,7 @@ export default function ReminderScreen() {
             <Ionicons name="add-circle-outline" size={26} color="#fff" />
             <Text style={styles.addButtonText}>Add New Reminder</Text>
           </TouchableOpacity>
-        </Animated.View>
+        </View>
 
         {showPicker && (
           <DateTimePicker
@@ -151,7 +152,7 @@ export default function ReminderScreen() {
           ))
         )}
       </ScrollView>
-    </LinearGradient>
+    </View>
   );
 }
 
@@ -160,24 +161,27 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 40,
   },
+  container:{
+    flex: 1,
+    backgroundColor: '#F8FAFC',
+  },
   scrollContainer: {
     padding: 20,
   },
   headerBox: {
     alignItems: 'center',
-    marginBottom: 25,
+    marginBottom: 24,
   },
   headerTitle: {
     fontSize: 26,
     fontWeight: '800',
-    color: '#fff',
-    textShadowColor: '#00000030',
+    color: '#0a3d91',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 3,
   },
   headerSubtitle: {
-    fontSize: 14,
-    color: '#f8f9ff',
+    fontSize: 20,
+    color: '#475569',
     marginTop: 6,
   },
   addButton: {

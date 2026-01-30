@@ -30,7 +30,7 @@ export default function ChatScreen() {
 
     try {
       const res = await fetch(
-        `http://10.75.67.97:8501/?message=${encodeURIComponent(input)}`
+        `http://10.157.167.169:8501/?message=${encodeURIComponent(input)}`
       );
       const data = await res.json();
       const botMsg = {

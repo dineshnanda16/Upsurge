@@ -12,7 +12,7 @@ import {
   TextInput
 } from "react-native";
 
-const API_BASE = "http://10.75.67.217:5000"; // replace with your system's IP
+const API_BASE = "http://10.157.167.217:5000"; // replace with your system's IP
 
 export default function DashboardScreen() {
 
@@ -194,21 +194,21 @@ export default function DashboardScreen() {
               styles.value,
               {
                 color:
-                  data?.fall_detected === "yes" ? "#ff0000" : "#00cc66",
+                  data?.fall_detected === "YES" ? "#ff0000" : "#00cc66",
               },
             ]}
           >
-            {data?.fall_detected === "yes" ? "Fall Detected" : "No Fall"}
+            {data?.fall_detected === "YES" ? "Fall Detected" : "No Fall"}
           </Text>
           <View style={styles.row}>
             <Ionicons
             name={
-              data?.fall_detected === "yes"
+              data?.fall_detected === "YES"
                 ? "alert-circle"
                 : "checkmark-circle"
             }
             size={30}
-            color={data?.fall_detected === "yes" ? "#ff0000" : "#00cc66"}
+            color={data?.fall_detected === "YES" ? "#ff0000" : "#00cc66"}
           />
           <Text style={styles.label}>Fall Detection Status</Text>
           </View>
@@ -219,20 +219,20 @@ export default function DashboardScreen() {
         {/*PRE-DEFINED BUTTONS*/}
         <TouchableOpacity
           style={styles.actionButton}
-          onPress={() => sendAction("ACTION_ONE")}
+          onPress={() => sendAction("I am on my way")}
           disabled={sending}
         >
           <Ionicons name="pulse" size={20} color="#fff" />
-          <Text style={styles.buttonText}>Action One</Text>
+          <Text style={styles.buttonText}>I am on my way</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.actionButton}
-          onPress={() => sendAction("ACTION_TWO")}
+          onPress={() => sendAction("Help is arranged")}
           disabled={sending}
         >
           <Ionicons name="analytics" size={20} color="#fff" />
-          <Text style={styles.buttonText}>Action Two</Text>
+          <Text style={styles.buttonText}>Help is arranged</Text>
         </TouchableOpacity>
         
         {/*IN-APP FEEDBACK NOTIFICATION*/}
@@ -272,8 +272,6 @@ export default function DashboardScreen() {
           </TouchableOpacity>
         </View>
 
-        
-          
       </ScrollView>
 
       {/* Floating Chatbot Button */}
